@@ -1,2 +1,2 @@
-# brainfreak
-simple implementation of BrainF*ck in C
+# Forth
+simple implementation of Forth in C
