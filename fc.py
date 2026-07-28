@@ -24,7 +24,26 @@ def compile_line(line):
             counter += 1
             if parts[i] == "-":
                 print("minus")
+                i += 1
                 continue
+
+            if parts[i] == "*":
+                print("multiply")
+                i+= 1
+                continue
+            
+            if parts[i] == "+":
+                print("plus")
+                i+= 1
+                continue
+
+            if parts[i] == "/":
+                print("divide")
+                i+=1
+                continue
+
+            if parts[i] == " ":
+                break
             
             
 
