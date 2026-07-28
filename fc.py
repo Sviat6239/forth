@@ -12,7 +12,7 @@ def compile_line(line):
     parts = line.split()
     token = parts[0]
 
-    if token.isdigit():
+    if token.isdigit() and token != " ":
         print("true")
         print(token)
         i = 1
@@ -20,27 +20,48 @@ def compile_line(line):
         while ((parts[i]).isdigit()):
             print("true")
             print(parts[i])
-            i += 1
+            i +=1
             counter += 1
-            if parts[i] == "-":
+
+            if parts[i] == "-" and parts[i+1] != " ":
                 print("minus")
-                i += 1
-                continue
+                if (parts[i+1]) == " ":
+                    break
+                else:
+                    i+=1
+                    continue
 
-            if parts[i] == "*":
+            if parts[i] == "*" and parts[i+1] != " ":
                 print("multiply")
-                i+= 1
-                continue
+                if (parts[i+1]) == " ":
+                    break
+                else:
+                    i+=1
+                    continue
             
-            if parts[i] == "+":
+            if parts[i] == "+" and parts[i+1] != " ":
                 print("plus")
-                i+= 1
-                continue
+                if (parts[i+1]) == " ":
+                    break
+                else:
+                    i+=1
+                    continue
 
-            if parts[i] == "/":
+            if parts[i] == "/" and parts[i+1] != " ":
                 print("divide")
-                i+=1
-                continue
+                if (parts[i+1]) == " ":
+                    break
+                else:
+                    i+=1
+                    continue
+
+            if parts[i] == "." and parts[i+1] != " ":
+                print("dot")
+                if (parts[i+1]) == " ":
+                    break
+                else:
+                    i+=1
+                    continue
 
             if parts[i] == " ":
                 break
