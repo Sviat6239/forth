@@ -1,6 +1,6 @@
 code_line = []
 
-file = 'xmpl001.f'
+file = 'xmpl001.forth'
 f = open(file, "r")
 for line in f:
     line = line.strip()
@@ -12,59 +12,20 @@ def compile_line(line):
     parts = line.split()
     token = parts[0]
 
-    if token.isdigit() and token != " ":
-        print("true")
-        print(token)
-        i = 1
-        counter = 0
-        while ((parts[i]).isdigit()):
+    for token in parts:
+        if token.isdigit():
             print("true")
-            print(parts[i])
-            i +=1
-            counter += 1
-
-            if parts[i] == "-" and parts[i+1] != " ":
-                print("minus")
-                if (parts[i+1]) == " ":
-                    break
-                else:
-                    i+=1
-                    continue
-
-            if parts[i] == "*" and parts[i+1] != " ":
-                print("multiply")
-                if (parts[i+1]) == " ":
-                    break
-                else:
-                    i+=1
-                    continue
-            
-            if parts[i] == "+" and parts[i+1] != " ":
-                print("plus")
-                if (parts[i+1]) == " ":
-                    break
-                else:
-                    i+=1
-                    continue
-
-            if parts[i] == "/" and parts[i+1] != " ":
-                print("divide")
-                if (parts[i+1]) == " ":
-                    break
-                else:
-                    i+=1
-                    continue
-
-            if parts[i] == "." and parts[i+1] != " ":
-                print("dot")
-                if (parts[i+1]) == " ":
-                    break
-                else:
-                    i+=1
-                    continue
-
-            if parts[i] == " ":
-                break
+            print(token)
+        elif token == "-":
+            print("minus")
+        elif token == "+":
+            print("plus")
+        elif token == "*":
+            print("multiply")
+        elif token == "/":
+            print("divide")
+        elif token == ".":
+            print("dot")
             
             
 
