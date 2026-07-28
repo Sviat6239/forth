@@ -80,7 +80,7 @@ void parse_line(const char *buffer, Line *line)
 int main(){
 
     // Open the source file
-    FILE *fptr = fopen("xmpl001.f", "r");
+    FILE *fptr = fopen("xmpl001.forth", "r");
     if (!fptr)
     {
         perror("Error opening input file 'code.as'");
@@ -96,15 +96,10 @@ int main(){
 
     while (fgets(buffer, sizeof(buffer), fptr))
     {
-        // Remove comments (everything after //)
-        char *comment_ptr = strstr(buffer, "//");
+        // Remove comments (everything after \)
+        char *comment_ptr = strstr(buffer, "\\");
         if (comment_ptr)
             *comment_ptr = '\0';
-
-        // Remove semicolon if present (simple statement terminator)
-        char *semi = strchr(buffer, ';');
-        if (semi)
-            *semi = '\0';
 
         // Skip empty lines
         if (strspn(buffer, " \t\n\r\f\v") == strlen(buffer))
