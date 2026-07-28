@@ -77,14 +77,12 @@ void parse_line(const char *buffer, Line *line)
     }
 }
 
-int main(){
-
+void interpreter(const char *file_path){
     // Open the source file
-    FILE *fptr = fopen("xmpl001.forth", "r");
+    FILE *fptr = fopen(file_path, "r");
     if (!fptr)
     {
         perror("Error opening input file 'code.as'");
-        return -1;
     }
 
     Line *lines = NULL;
@@ -148,6 +146,11 @@ int main(){
     free(lines);
 
     fclose(fptr);
+}
+
+int main(){
+
+    interpreter("./xmpl001.forth");
 
     return 0;
 }
