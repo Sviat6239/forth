@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stbool.h>
+#include <stdbool.h>
 #include <stdlib.h>
 
 typedef struct
@@ -80,7 +80,7 @@ void parse_line(const char *buffer, Line *line)
 int main(){
 
     // Open the source file
-    FILE *fptr = fopen("code.as", "r");
+    FILE *fptr = fopen("xmpl001.f", "r");
     if (!fptr)
     {
         perror("Error opening input file 'code.as'");
