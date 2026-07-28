@@ -10,35 +10,37 @@ for line in f:
 
 def compile_line(line):
     parts = line.split()
-    token = parts[0]
-
-    digitCount = 0
-    digits = []
+    stack = []
 
     for token in parts:
         if token.isdigit():
-            print("true")
-            digitCount += 1
-            digits.append(token)
-            print(token)
+            stack.append(int(token))
+            
         elif token == "-":
-            digitCount = 0
-            print("minus")
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(b - a)
+            
         elif token == "+":
-            digitCount = 0
-            print("plus")
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(b + a)
+            
         elif token == "*":
-            digitCount = 0
-            print("multiply")
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(b * a)
+            
         elif token == "/":
-            digitCount = 0
-            print("divide")
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(b // a)
+            
         elif token == ".":
-            print("dot")
-        
-        print(digitCount)
-
-    print(digits)
+            if stack:
+                print(stack.pop())
+            else:
+                print("Error: Stack Underflow!")
 
 for line in code_line:
     compile_line(line)
