@@ -131,6 +131,15 @@ int main(){
         printf("\n");
     }
 
+    // ==================== CODE GENERATION PHASE ====================
+    printf("\n=== Generating output code ===\n");
+
+    for (int i = 0; i < line_count; i++){
+        if (lines[i].token_count == 0)
+            continue;
+
+    }
+
     // ==================== CLEANUP PHASE ====================
     // Free all allocated memory to prevent leaks
     for (int i = 0; i < line_count; i++)
